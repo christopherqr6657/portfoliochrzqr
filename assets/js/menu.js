@@ -1,0 +1,59 @@
+
+document.addEventListener("DOMContentLoaded", (event) =>{
+
+    let bottom = document.querySelector(".layout__menu-toggle");
+    let icon_bars = document.querySelector(".layout__menu-toggle .fa-bars");
+    let icon_xmark = document.querySelector(".layout__menu-toggle .fa-xmark");
+    let aside = document.querySelector(".layout__aside");
+
+    // start pulsing by default (mobile)
+    if (bottom) {
+        bottom.classList.add('pulse');
+    }
+
+    bottom.addEventListener("click", (event) =>{
+
+        
+        let visible = document.querySelector(".layout__aside--visible");
+
+
+        if (!visible) {
+            aside.classList.add("layout__aside--visible");
+            icon_bars.style.opacity = 0;
+            icon_xmark.style.opacity = 1;
+            // pause the pulse while menu is open
+            if (bottom) {
+                bottom.classList.remove('pulse');
+                bottom.classList.add('paused');
+            }
+        }else{
+            aside.classList.remove("layout__aside--visible");
+            icon_bars.style.opacity = 1;
+            icon_xmark.style.opacity = 0;
+            // resume pulsing when menu closes
+            if (bottom) {
+                bottom.classList.remove('paused');
+                bottom.classList.add('pulse');
+            }
+        }
+
+    });
+
+    window.addEventListener("resize", () =>{
+
+        let size = parseInt(document.body.clientWidth);
+
+        if (size <= 1060) {
+            aside.classList.remove("layout__aside--visible");
+            icon_bars.style.opacity = 1;
+            icon_xmark.style.opacity = 0;
+        }
+
+
+    });
+
+});
+
+
+
+
