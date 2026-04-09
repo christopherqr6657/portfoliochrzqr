@@ -1,0 +1,10 @@
+@media (max-width: 1060px){
+    .content__bk{
+        background-image: url(../img/bk.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        /* background-position: -20px -120px; */
+        
+    }
+}
