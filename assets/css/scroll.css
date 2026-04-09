@@ -1,0 +1,128 @@
+/*variables*/
+:root{
+    --color-scrollbar:#d3d3d4;
+    --color-background-scrollbar: #eee;
+}
+
+/* Forzar estilos en navegadores WebKit/Chromium donde la pista aparece transparente */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.layout::-webkit-scrollbar,
+.layout__aside::-webkit-scrollbar,
+.content__page::-webkit-scrollbar {
+    -webkit-appearance: none !important;
+    width: 14px !important;
+    background: rgba(11,132,255,0.12) !important; /* pista visible */
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track,
+.layout::-webkit-scrollbar-track,
+.layout__aside::-webkit-scrollbar-track,
+.content__page::-webkit-scrollbar-track{
+    background-color: rgba(11,132,255,0.12) !important;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb,
+.layout::-webkit-scrollbar-thumb,
+.layout__aside::-webkit-scrollbar-thumb,
+.content__page::-webkit-scrollbar-thumb{
+    background-color: rgba(11,132,255,0.95) !important;
+    border-radius: 999px !important;
+    border: 3px solid rgba(255,255,255,0.06) !important;
+    box-shadow: inset 0 0 0 4px rgba(255,255,255,0.02) !important;
+    background-clip: padding-box !important;
+}
+
+/* corner when both scrollbars visible */
+::-webkit-scrollbar-corner{
+    background: rgba(11,132,255,0.12) !important;
+}
+
+
+/*scroll chrome*/
+
+
+.content__page::-webkit-scrollbar{
+    width: 14px;
+    background: rgba(11,132,255,0.10); /* soft blue track */
+}
+
+.content__page::-webkit-scrollbar-thumb{
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(11,132,255,0.95), rgba(11,132,255,0.75));
+    border: 3px solid rgba(255,255,255,0.06); /* subtle light edge */
+    box-shadow: inset 0 0 0 4px rgba(255,255,255,0.02);
+}
+
+.content__page:hover::-webkit-scrollbar-thumb{
+    transform: scale(1.02);
+}
+
+.content__page::-webkit-scrollbar-track{
+    background-color: rgba(11,132,255,0.10);
+    margin: 40px 0;
+}
+
+/* Firefox support for content area */
+.content__page{
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent) rgba(11,132,255,0.10);
+}
+
+/*scroll firefox*/
+
+/*
+.content__page{
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-scrollbar) transparent;
+}
+*/
+
+/*scroll chrome barra lateral*/
+
+.layout__aside::-webkit-scrollbar{
+    width: 14px;
+    background: rgba(11,132,255,0.10); /* soft blue track matching design */
+}
+
+.layout__aside::-webkit-scrollbar-thumb{
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(11,132,255,0.95), rgba(11,132,255,0.75));
+    border: 3px solid rgba(255,255,255,0.06);
+    box-shadow: inset 0 0 0 4px rgba(255,255,255,0.02);
+}
+
+.layout__aside:hover::-webkit-scrollbar-thumb{
+    transform: scale(1.02);
+}
+
+.layout__aside::-webkit-scrollbar-track{
+    background-color: rgba(11,132,255,0.10);
+    margin: 40px 0;
+}
+
+/* Firefox support for aside */
+.layout__aside{
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent) rgba(11,132,255,0.10);
+}
+
+/* Ensure page & aside scrollbars use same design on smaller screens */
+@media (max-width: 1060px){
+    .layout__aside::-webkit-scrollbar,
+    .content__page::-webkit-scrollbar{
+        width: 12px;
+        background: rgba(11,132,255,0.10);
+    }
+
+    .layout__aside::-webkit-scrollbar-thumb,
+    .content__page::-webkit-scrollbar-thumb{
+        background: linear-gradient(180deg, rgba(11,132,255,0.95), rgba(11,132,255,0.75));
+        border: 2px solid rgba(255,255,255,0.06);
+    }
+}
+
+
+
